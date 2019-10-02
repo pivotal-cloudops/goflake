@@ -1,6 +1,8 @@
-module goflake-server
+module goflake
+
+go 1.12
 
 require (
-	github.com/pivotal-cloudops/goflake v1.0.0
-	github.com/gorilla/mux v1.6.2
+	github.com/bstick12/goflake v1.0.0 // indirect
+	github.com/gorilla/mux v1.7.3 // indirect
 )

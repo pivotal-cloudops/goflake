@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/bstick12/goflake"
 	"github.com/gorilla/mux"
-	"github.com/pivotal-cloudops/goflake"
 )
 
 var generator = goflake.GoFlakeInstanceUsingUnique("D01Z01")
