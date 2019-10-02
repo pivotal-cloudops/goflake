@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -18,9 +19,17 @@ func main() {
 
 func startServer() {
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/ids", Id)
+	router.HandleFunc("/silly", Silly)
 	router.Queries("count", "{count:[0-9]+}")
 	log.Fatal(http.ListenAndServe(":8080", router))
+}
+
+func Silly(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprint(w, "Weird shit")
+
 }
 
 func Id(w http.ResponseWriter, r *http.Request) {
