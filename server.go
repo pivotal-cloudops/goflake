@@ -28,7 +28,7 @@ func Silly(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprint(w, "Weird shit")
+	fmt.Fprint(w, "Weird shit \n")
 
 }
 
