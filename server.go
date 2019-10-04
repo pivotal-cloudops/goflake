@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/bstick12/goflake"
@@ -18,10 +19,11 @@ func main() {
 }
 
 func startServer() {
+	port := os.Getenv("PORT")
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/silly", Silly)
 	router.Queries("count", "{count:[0-9]+}")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":"+port, router))
 }
 
 func Silly(w http.ResponseWriter, r *http.Request) {
